@@ -19,7 +19,7 @@ class TodoList extends Component {
   }
 
   render() {
-    console.log('render');
+    // console.log('render');
     return (
       <>
         {/*多行注释*/}
@@ -38,7 +38,7 @@ class TodoList extends Component {
           />
           <button onClick={this.handleBtnClick}>提交</button>
         </div>
-        <ul>
+        <ul ref={(ul) => {this.ul = ul}}>
           {this.getTodoItem()}
         </ul>
         <Test content={this.state.test} />
@@ -90,7 +90,10 @@ class TodoList extends Component {
     this.setState((prevState) => ({
       inputVal: '',
       list: [...prevState.list, prevState.inputVal]
-    }))
+    }),() => {
+      // 回调函数
+      console.log(this.ul.querySelectorAll('li').length);
+    })
   }
 
   handleDelete(index) {

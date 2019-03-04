@@ -9,7 +9,7 @@ class TodoItem extends Component {
   }
 
   render() {
-    console.log('render TodoItem')
+    // console.log('render TodoItem');
     const {prefix, content} = this.props;
     let merge = `${prefix} - ${content}`;
     return (
